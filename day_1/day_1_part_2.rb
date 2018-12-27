@@ -1,8 +1,7 @@
-variations = File.open("input.txt").readlines.map(&:to_i)
+path = File.join(File.dirname(__FILE__), "input.txt")
+variations = File.open(path).readlines.map(&:to_i)
 
 frequencies = {}
-
-resulting_frequency = nil
 
 current_frequency = 0
 
@@ -20,7 +19,7 @@ begin
     repeat = frequencies[change.to_s]
 
     if repeat.nil?
-        frequencies[change.to_s] = change
+        frequencies[change.to_s] = true
     else
         duplicate = change
     end
